@@ -1,0 +1,15 @@
+.DS_Store
+*.pyc
+__pycache__/
+node_modules/
+.venv/
+.venv-*/
+.env
+.self-media-system/
+.writing-skills/
+
+06-wechat-studio/content/
+06-wechat-studio/AI/
+06-wechat-studio/workspace-preferences.json
+06-wechat-studio/frontend/.venv-image/
+06-wechat-studio/frontend/.pytest_cache/
