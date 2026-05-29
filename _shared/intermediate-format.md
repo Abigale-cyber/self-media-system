@@ -41,7 +41,7 @@
 | 内容大纲 | `content-outline-builder` |
 | 口播脚本 | `voice-script-generator` |
 | 大纲扩写 | `outline-expander` |
-| 封面配图 | `content-image-gen` |
+| 生成配图 | `content-image-gen` |
 | 风格改写 | （已合并到 outline-expander） |
 | 内容审稿 | `content-reviewer` |
 | 合规检查 | `medical-aesthetic-compliance-checker` |
@@ -124,7 +124,7 @@
 
 ## content-outline.md
 
-由 `content-outline-builder` 输出，供 `voice-script-generator` 和 `outline-expander` 使用。
+由 `content-outline-builder` 输出，供 `voice-script-generator`、`outline-expander` 和 `content-image-gen` 使用。
 
 主产物是 Markdown 文档。建议结构：
 

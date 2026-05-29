@@ -3400,7 +3400,7 @@ def build_cover_prompt(
     custom_prompt: str = "",
 ) -> str:
     lines = [
-        "生成一张匹配文章主题的公众号封面配图，不要做成标题海报，不要在画面里放文字。",
+        "生成一张匹配文章主题的公众号封面图配图，不要做成标题海报，不要在画面里放文字。",
         f"{visual_topic_direction(title=title, summary=summary, archetype=archetype_label, mode='cover')} {cover_style_direction(style_id)}",
         f"{compact_tone_prompt_context(state)} 横版构图，浅背景，留白充足，单一清晰视觉主体。",
         "不要人物、机器人、logo、水印、字母、数字、色值、比例标记、图例、代码雨、复杂图表、箭头说明、UI 截图、贴纸。",

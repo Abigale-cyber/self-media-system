@@ -545,7 +545,7 @@ function renderCover(detail) {
     refs.coverResultPromptInput.dataset.coverStyleId = promptSource.styleId || generated?.styleId || draft?.styleId || "";
     refs.coverResultPromptHelp.textContent = hasGenerated
       ? (generated.localPath ? `本地路径：${generated.localPath}` : "当前封面还没有本地路径。")
-      : "这是系统自动生成的默认封面配图 Prompt；如果要微调，只补充画面意象再点上方 generate。";
+      : "这是系统自动生成的默认生成配图 Prompt；如果要微调，只补充画面意象再点上方 generate。";
     refs.selectCoverButton.dataset.coverPath = hasGenerated ? (generated.localPath || "") : "";
     refs.deleteCoverButton.dataset.deleteCoverPath = hasGenerated ? (generated.localPath || "") : "";
     refs.selectCoverButton.disabled = !hasGenerated;

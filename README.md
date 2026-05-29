@@ -21,7 +21,7 @@
 | `digital-avatar` | 固定账号的人设、口吻、专业边界和禁用表达 | 人设规则、表达边界 |
 | `topic-generator` | 资料盘点访谈，生成候选选题并排序推荐 Top 3 | 选题池、Top 3 推荐 |
 | `content-outline-builder` | 把选题整理成可写作的文章大纲 | 大纲（含 SCQA + 章节） |
-| `outline-expander` | ��大纲写公众号长文，支持标题/开头/结尾优化和润色 | 文章初稿 |
+| `outline-expander` | 按大纲写公众号长文，支持标题/开头/结尾优化和润色 | 文章初稿 |
 | `voice-script-generator` | 大纲或文章转口播稿（60s/90s/180s）+ 分镜建议 + 封面标题 | 口播稿 |
 | `content-image-gen` | 生成封面图和正文配图 | 图片文件 |
 | `content-reviewer` | 内容审稿（五角色对抗式）+ 医美合规检查 | 审稿报告、合规报告 |
@@ -36,7 +36,7 @@ self-media-system/
 ├── 03-content-outline-builder/     # 大纲
 ├── 04-outline-expander/            # 长文
 ├── 04-voice-script-generator/      # 口播
-├── 04-content-image-gen/           # 配图
+├── 04-content-image-gen/           # 生成配图
 ├── 05-content-reviewer/            # 审稿+合规
 ├── 06-wechat-studio/               # 工作台
 └── _shared/                        # 公共配置
