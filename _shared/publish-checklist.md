@@ -16,7 +16,7 @@
 3. 没有把个体情况说成通用结论。
 4. 涉及项目、恢复期、适应人群时，保留面诊和个体差异提醒。
 5. 案例和前后对比没有暗示固定效果。
-6. 已调用或建议调用 `medical-aesthetic-compliance-checker`。
+6. 已调用或建议调用合规检查（`medical-aesthetic-compliance-checker`）。
 
 ## 平台发布
 

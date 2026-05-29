@@ -4,8 +4,8 @@
 
 ## 能做什么
 
-- 导入 `wechat-article-writer` 产出的 Markdown。
-- 承接 `platform-adapter` 里的公众号发布包。
+- 导入 `outline-expander` 产出的 Markdown。
+- 承接内容审稿后的成稿。
 - 管理 `content-image-gen` 生成的封面图和正文配图。
 - 在本地预览公众号样式，调整主题、字号、标题样式和图片位置。
 - 人工确认后，按本机已配置的公众号能力推送草稿箱。
@@ -63,7 +63,7 @@ npm install
 - 这是工作台 Skill，不是全自动发布器。
 - 未配置公众号发布能力时，只做本地预览和发布包整理。
 - 推送草稿箱前仍需要人工检查标题、封面、摘要和图片引用。
-- 医美内容进入工作台前，应先经过 `medical-aesthetic-compliance-checker`。
+- 医美内容进入工作台前，应先经过 `content-reviewer`。
 
 ## 相关文件
 

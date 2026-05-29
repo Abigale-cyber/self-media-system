@@ -59,10 +59,10 @@ model: nano-nx
 
 ## 相关 Skill
 
-- `wechat-article-writer`：负责公众号长文成稿
+- `outline-expander`：负责公众号长文成稿
 - `content-image-gen`：负责封面图和正文配图 Prompt/图片
-- `platform-adapter`：负责公众号发布包里的标题、摘要和封面方向
-- `medical-aesthetic-compliance-checker`：负责发布前医美风险复核
+删除以下 Skill 引用（因为已删除）：
+- `content-reviewer`：负责内容审稿和合规检查
 
 ## 注意事项
 
@@ -74,6 +74,6 @@ model: nano-nx
 ## 最小验收
 
 - 能启动 `frontend/server.py` 并打开 `http://127.0.0.1:4173`。
-- 能导入 `wechat-article-writer` 产出的 Markdown。
+- 能导入 `outline-expander` 产出的 Markdown。
 - 能展示公众号预览、标题、摘要、封面图和正文配图位置。
 - 未配置草稿箱推送时，不自动发布，只保留本地预览和发布包。

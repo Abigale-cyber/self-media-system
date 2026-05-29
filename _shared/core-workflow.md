@@ -11,7 +11,7 @@
 | 步骤 | 层级 | 目标产物 | 下游 |
 | --- | --- | --- | --- |
 | 1A | 数字分身层 | Emma 数字分身规则卡 | 全部 Skill |
-| 2A | 选题生产层 | topic-material-pack.md | 选题生成、评分、大纲 |
+| 2A | 选题生产层 | topic-material-pack.md | 生成选题、评分、大纲 |
 | 2B | 选题生产层 | topic-pool.md | 选题评分 |
 | 2C | 选题生产层 | topic-ranking.md | 内容大纲 |
 | 3A | 内容策划层 | content-outline.md | 口播、长文、配图 |

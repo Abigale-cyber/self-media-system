@@ -21,9 +21,9 @@ description: 当用户说"整理大纲"、"生成 outline"、"先定文章结构
 - 用户需要确认核心判断、切入角度和章节安排
 
 **不触发：**
-- "帮我找选题" / "抓热点" → content-topic-radar
-- "我有想法但说不清楚" → interview-to-draft
-- "写文章" / "帮我写公众号" → wechat-article-writer
+- "帮我找选题" / "抓热点" → 生成选题（`topic-generator`）
+- "我有想法但说不清楚" → 生成选题（`topic-generator`）
+- "写文章" / "帮我写公众号" → 大纲扩写（`outline-expander`）
 
 ## 不做什么
 
@@ -44,7 +44,7 @@ description: 当用户说"整理大纲"、"生成 outline"、"先定文章结构
 - topic-material-pack.md 中的访谈素材
 - 用户已有的素材、观点、产品说明或草稿片段
 
-优先接收带资料依据的 `topic-ranking.md` 或 `topic-material-pack.md`。如果只有选题标题而没有账号模式、核心判断和可用资料，先退回 `interview-to-draft` 补资料。
+优先接收带资料依据的 `topic-ranking.md` 或 `topic-material-pack.md`。如果只有选题标题而没有账号模式、核心判断和可用资料，先退回 `topic-generator` 补资料。
 
 如果方向已明确但交接字段不足，一次性确认：
 1. 你主要想说什么？
@@ -110,12 +110,14 @@ description: 当用户说"整理大纲"、"生成 outline"、"先定文章结构
 
 ### Step 6: 输出文件
 
-读取 `../_shared/intermediate-format.md` 中 `content-outline.md` 的格式规范，按格式输出。
+读取 `../_shared/intermediate-format.md` 中 `content-outline.md` 的格式规范，创建 Markdown 文档，不要在聊天中输出代码块。
 
 默认输出到本地文件：
-`content-production/inbox/YYYYMMDD-<slug>-gzh-outline.md`
+`content-production/内容大纲/<用户选择的标题>.md`
 
-如果用户指定路径，以用户路径为准。
+文件名使用用户最终选择或确认的选题标题；不要使用英文前缀、英文 slug 或 `content-outline-`。如果同一标题需要多个阶段文档，用中文阶段目录区分。
+
+如果用户指定保存路径，以用户路径为准。用户指定完整 `.md` 文件路径时直接保存到该文件；用户指定目录时，保存为 `<用户指定目录>/<用户选择的标题>.md`。
 
 ### Step 7: 质量自检
 
@@ -136,6 +138,8 @@ description: 当用户说"整理大纲"、"生成 outline"、"先定文章结构
 - 核心判断
 - 切入角度
 - 文章大纲
+
+如果生成了多个大纲方案供选择，聊天里用纵向对比表展示方案差异；用户确认后，只把最终选中的方案写入 Markdown 文档。
 
 有修改意见则更新后重新确认。
 
