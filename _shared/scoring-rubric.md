@@ -42,7 +42,7 @@
 
 ## 审稿评分
 
-`adversarial-content-review` 使用 10 分制：
+`content-reviewer` 使用 10 分制：
 
 | 维度 | 分值 |
 | --- | ---: |

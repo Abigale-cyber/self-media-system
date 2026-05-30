@@ -24,7 +24,7 @@
 | `outline-expander` | 按大纲写公众号长文，支持标题/开头/结尾优化和润色 | 文章初稿 |
 | `voice-script-generator` | 大纲或文章转口播稿（60s/90s/180s）+ 分镜建议 + 封面标题 | 口播稿 |
 | `content-image-gen` | 生成封面图和正文配图 | 图片文件 |
-| `content-reviewer` | 内容审稿（五角色对抗式）+ 医美合规检查 | 审稿报告、合规报告 |
+| `content-reviewer` | 内容审稿（三角色对抗式）+ 医美合规检查 | 审稿报告 |
 | `wechat-studio` | 公众号工作台：Markdown 导入、HTML 预览、主题调整、草稿箱推送 | 本地预览 |
 
 ## 目录结构

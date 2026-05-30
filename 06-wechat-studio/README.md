@@ -34,7 +34,7 @@ npm install
 **输入**
 
 - `article-draft.md`
-- `publish-pack.md` 或 `publish-pack.json`
+- 文章摘要、封面图方向和图片 Prompt
 - 封面图、正文配图、图片 Prompt
 
 **输出**
@@ -48,7 +48,7 @@ npm install
 
 工作台设置页里的图片默认值只用于工作台内的可选生图能力。`content-image-gen` 当前以 `../_shared/env-config.md` 和本地脚本为准。
 
-不要把工作台图片配置当成 `content-image-gen` 的真实运行配置；两边没有统一前，只在发布包里记录实际使用的图片路径和 Prompt。
+不要把工作台图片配置当成 `content-image-gen` 的真实运行配置；两边没有统一前，只在工作台素材清单里记录实际使用的图片路径和 Prompt。
 
 ## 使用流程
 
@@ -61,7 +61,7 @@ npm install
 ## 注意事项
 
 - 这是工作台 Skill，不是全自动发布器。
-- 未配置公众号发布能力时，只做本地预览和发布包整理。
+- 未配置公众号发布能力时，只做本地预览和工作台素材整理。
 - 推送草稿箱前仍需要人工检查标题、封面、摘要和图片引用。
 - 医美内容进入工作台前，应先经过 `content-reviewer`。
 

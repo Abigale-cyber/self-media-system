@@ -23,8 +23,8 @@
 
 - 默认根目录是当前工作区下的 `content-production/`。
 - 文件名默认使用用户最终选择或确认的标题：`<用户选择的标题>.md`
-- 不使用 `content-outline-`、`voice-script-`、`article-draft-`、`review-report-`、`publish-pack-` 等英文前缀。
-- 如果同一标题下需要保留多个阶段文档，优先放入中文阶段目录区分，例如 `content-production/内容大纲/<用户选择的标题>.md`、`content-production/长文草稿/<用户选择的标题>.md` 改成 `content-production/文章初稿/<用户选择的标题>.md`。
+- 不使用 `content-outline-`、`voice-script-`、`article-draft-`、`review-report-` 等英文前缀。
+- 如果同一标题下需要保留多个阶段文档，优先放入中文阶段目录区分，例如 `content-production/内容大纲/<用户选择的标题>.md`、`content-production/文章初稿/<用户选择的标题>.md`。
 - 如果必须在同一目录保存多个阶段版本，只能追加中文阶段后缀，例如 `<用户选择的标题>-内容大纲.md`，不要追加英文阶段名。
 - 用户可以指定保存位置。若用户指定完整 `.md` 文件路径，按该路径保存；若用户指定目录，则保存为 `<用户指定目录>/<用户选择的标题>.md`。
 - 用户给相对路径时，按当前工作区解析；用户给绝对路径时，按绝对路径保存。
@@ -44,8 +44,7 @@
 | 生成配图 | `content-image-gen` |
 | 风格改写 | （已合并到 outline-expander） |
 | 内容审稿 | `content-reviewer` |
-| 合规检查 | `medical-aesthetic-compliance-checker` |
-| 平台适配 | （已删除） |
+| 合规检查 | （已合并到 content-reviewer） |
 | 公众号工作台 | `wechat-studio` |
 
 ## topic-material-pack.md
@@ -95,11 +94,11 @@
 
 由 `topic-generator` 输出，供内部筛选使用。
 
-面向用户展示时默认只输出一张候选选题表，不要使用 YAML 代码块，不要输出基础信息表、评分表、资料依据表或原始信号表。
+面向用户展示时默认只输出一张 Top 3 候选选题表，不要使用 YAML 代码块，不要输出基础信息表、评分表、资料依据表或原始信号表。
 
-| 序号 | 题目 | 受众痛点 | 内容角度 |
-| ---: | --- | --- | --- |
-| 1 | string | string | string |
+| 优先级 | 题目 | 受众痛点 | 内容角度 | 核心优势 | 主要短板 |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | string | string | string | string | string |
 
 面向用户默认不要输出账号模式、目标用户、业务模块、搜索方式、可用资料、资料依据、风险边界、处理建议、初步评分、综合分、原始信号表或可延展形态。上述信息只作为内部筛选依据，除非用户明确追问。
 
@@ -111,16 +110,16 @@
 
 面向用户展示时，默认只输出极简横向对比表：
 
-| 优先级 | 选题 | 核心优势 | 主要短板 |
-| ---: | --- | --- | --- |
+| 优先级 | 题目 | 受众痛点 | 内容角度 | 核心优势 | 主要短板 |
+| ---: | --- | --- | --- | --- | --- |
 
 不要默认展示综合分、七维分数、处理建议、完整资料依据或风险清单；这些只作为内部判断和追问时的补充说明。
 
 以下字段仅作为内部交接契约，不作为面向用户的展示格式：生成时间、候选来源、账号模式、内部评分规则、排序结果、Top3、下一步。
 
-排序结果至少保留：优先级、选题、核心优势、主要短板、内部判断、推荐切入角度、安全改写方向。
+排序结果至少保留：优先级、题目、受众痛点、内容角度、核心优势、主要短板、内部判断、推荐切入角度、安全改写方向。
 
-下一步写：内容大纲（content-outline-builder）。
+下一步写：内容大纲（content-outline-builder）。输出后停下来让用户确认选题。
 
 ## content-outline.md
 
@@ -154,7 +153,7 @@
 - 口播逐字稿：可直接录制的正文
 - 分镜建议：用表格列出镜头、时长、画面内容、字幕重点、对应口播
 - 封面标题：按类型给备选
-- 下一步建议：内容审稿（adversarial-content-review）/合规检查（medical-aesthetic-compliance-checker）
+- 下一步建议：内容审稿（content-reviewer）
 
 ## article-draft.md
 
@@ -168,42 +167,20 @@
 - 风险提醒
 - 正文：按公众号可读排版写成 Markdown 小标题和自然段
 - 字数
-- 下一步建议：内容审稿（adversarial-content-review）/合规检查（medical-aesthetic-compliance-checker）
+- 下一步建议：内容审稿（content-reviewer）
 
 ## review-report.md
 
-由 `adversarial-content-review` 输出。
+由 `content-reviewer` 输出。医美内容的合规检查并入同一份审稿报告，不再调用独立合规检查 Skill。
 
 主产物是 Markdown 审稿报告文档。建议结构：
 
 - 审稿对象：稿件来源
 - 总体结论：通过 / 需修改 / 需重写
 - 维度评分：用表格列出标题吸引力、结构稳定性、论据强度、用户价值、表达完成度
+- 合规与风险明细：涉及医美、诊疗、效果、案例或平台风险时必须包含
 - 主要问题：用表格列出位置、问题、修改建议
 - 优先修改清单
-- 下一步建议：内容审稿（adversarial-content-review）/合规检查（medical-aesthetic-compliance-checker）/返回内容大纲（content-outline-builder）
+- 下一步建议：公众号工作台（wechat-studio）/大纲扩写（outline-expander）/返回内容大纲（content-outline-builder）/重写
 
-## compliance-report.md
-
-由 `medical-aesthetic-compliance-checker` 输出。
-
-主产物是 Markdown 合规报告文档。建议结构：
-
-- 审查结论：稿件来源、检查日期、账号模式、平台、结论、是否建议发布
-- 风险明细：用表格列出等级、原句/位置、风险类型、问题说明、替代表达
-- 合规改写原则
-- 合规版全文：当原稿完整且可改写时，直接写成 Markdown 正文
-- 下一步建议：公众号工作台（wechat-studio）/大纲扩写（outline-expander）/重写
-
-## publish-pack.md / publish-pack.json
-
-由 `content-reviewer` 输出，供人工发布或 `wechat-studio` 使用。
-
-主产物是 Markdown 发布包文档。只有用户明确要求系统导入或 API 对接时，才额外生成 `publish-pack.json`。建议结构：
-
-- 基础信息：稿件来源、合规报告、账号模式
-- 平台发布总览：用表格列出平台、推荐内容形态、核心角度、是否需要二次合规复核
-- 小红书发布包：标题备选、封面文字、正文、标签、评论区引导、CTA、发布注意事项
-- 视频号发布包：视频标题、开头 3 秒字幕、简介文案、封面文字、评论区引导、CTA、发布注意事项
-- 公众号发布包：标题备选、摘要、封面图方向、正文 Markdown、排版建议
-- wechat-studio 交接：Markdown 路径、封面图路径、主题建议、是否需要人工确认
+审稿完成后只给审稿结论和修改建议，不自动进入公众号工作台；只有用户明确要求预览、排版或推送草稿时才进入公众号工作台（`wechat-studio`）。
