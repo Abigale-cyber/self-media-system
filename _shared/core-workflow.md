@@ -13,13 +13,13 @@
 | 1A | 数字分身层 | Emma 数字分身规则卡 | 全部 Skill |
 | 2A | 选题生产层 | topic-material-pack.md | 生成选题、评分、大纲 |
 | 2B | 选题生产层 | topic-pool.md | 选题评分 |
-| 2C | 选题生产层 | topic-ranking.md | 内容大纲 |
+| 2C | 选题生产层 | topic-ranking.md / viral-breakdown.md | 内容大纲 |
 | 3A | 内容策划层 | content-outline.md | 口播、长文、配图 |
 | 4A | 内容生成层 | voice-script.md | 内容审稿 |
-| 4B | 内容生成层 | article-draft.md | 内容审稿、公众号工作台 |
-| 4C | 内容生成层 | image-prompts.md / 图片路径 | 公众号工作台 |
-| 5A | 优化审查层 | review-report.md | 修改或公众号工作台 |
-| 6A | 分发复盘层 | 公众号预览和草稿准备 | 人工确认 |
+| 4B | 内容生成层 | article-draft.md | 内容审稿 |
+| 4C | 内容生成层 | image-prompts.md / 图片路径 | 成稿或口播素材 |
+| 5A | 优化审查层 | review-report.md / 原文修订 | 修改或人工发布 |
+| 6A | 数据复盘层 | data-review.md | 下一轮选题、结构或表达优化 |
 
 ## 执行原则
 
@@ -27,4 +27,4 @@
 - 用户已有明确产物时，直接进入对应层，不强迫从 1A 重走。
 - 每个产物都要标注来源：用户确认、知识库资料、联网资料、推断、待确认。
 - 选题和内容涉及医美项目、恢复期、效果、案例或适应人群时，必须经过内容审稿（含合规检查）。
-- `wechat-studio` 只做公众号工作台，不承接其他平台自动发布。
+- 系统不内置自动发布步骤；发布前审稿后进入人工确认，发布后再由 `data-analysis` 做复盘。

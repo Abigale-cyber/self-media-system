@@ -69,9 +69,6 @@ else
     --exclude '.DS_Store' \
     --exclude '.self-media-system/' \
     --exclude '.writing-skills/' \
-    --exclude '06-wechat-studio/content/' \
-    --exclude '06-wechat-studio/AI/' \
-    --exclude '06-wechat-studio/workspace-preferences.json' \
     "$REPO_DIR/" "$TARGET/"
   echo "Installed self-media-system skills to $TARGET"
 fi

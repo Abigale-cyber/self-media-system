@@ -1,6 +1,6 @@
 ---
 name: content-image-gen
-description: 为 self-media-system 生成配图。支持类型×风格×色板三维选择和文章类型预设。当用户说"生成配图"、"做封面图"、"给文章配图"时使用。可被 wechat-studio 工作台调用。
+description: 为 self-media-system 生成配图。支持类型×风格×色板三维选择和文章类型预设。当用户说"生成配图"、"做封面图"、"给文章配图"时使用。
 ---
 
 # content-image-gen
@@ -8,12 +8,12 @@ description: 为 self-media-system 生成配图。支持类型×风格×色板�
 ## 触发条件
 
 - 用户说"生成配图"、"做封面图"、"给文章配图"
-- wechat-studio 需要生成封面图或正文配图时调用
+- 文章、口播或人工发布确认前需要生成封面图或正文配图时调用
 - 用户说"帮我做一张图"
 
 **不触发：**
 - "写文章" → 大纲扩写（`outline-expander`）
-- "发草稿箱" → 公众号工作台（`wechat-studio`）
+- "审稿" → 内容审稿（`adversarial-content-review`）
 - "改标题" → 大纲扩写（`outline-expander`）
 
 ## 不做什么

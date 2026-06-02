@@ -33,8 +33,8 @@ description: 把大纲扩写成公众号完整文章。支持标题优化、开�
 **不触发：**
 
 - "整理大纲" / "生成 outline" → 内容大纲（`content-outline-builder`）
-- "审稿" → 内容审稿（`content-reviewer`）
-- "发草稿箱" → 公众号工作台（`wechat-studio`）
+- "审稿" → 内容审稿（`adversarial-content-review`）
+- "数据复盘" → 数据复盘（`data-analysis`）
 
 ## 不做什么
 
@@ -108,7 +108,7 @@ description: 把大纲扩写成公众号完整文章。支持标题优化、开�
 
 创建完整 Markdown 文章文档，默认输出到：`content-production/文章初稿/<用户选择的标题>.md`
 
-文章初稿必须是可直接导入 WeChat Studio 的干净 Markdown：
+文章初稿必须是可供审稿和人工发布确认的干净 Markdown：
 
 ```markdown
 ---
@@ -135,11 +135,11 @@ author: Emma
 - `字数`
 - `下一步建议`
 
-如需插入正文配图位置，可使用 WeChat Studio 支持的图片槽位标记：`[[IMAGE_SLOT:slot-1]]`、`[[IMAGE_SLOT:slot-2]]`。图片槽位只放在适合配图的位置，不要为了凑数量硬插。
+如需插入正文配图位置，可使用图片槽位标记：`[[IMAGE_SLOT:slot-1]]`、`[[IMAGE_SLOT:slot-2]]`。图片槽位只放在适合配图的位置，不要为了凑数量硬插。
 
 医美风险边界要自然写进正文表达，例如“需要结合面诊判断”“不替代个体诊疗建议”，不要单独作为内部审稿字段写在正文前面。
 
-如果当前是大纲扩写模式，后续会自动进入 Step 5 审稿；因此文章初稿文档末尾不要写“下一步建议：内容审稿（content-reviewer）”。审稿状态和修改建议只写入审稿报告，并在聊天回复中说明。
+如果当前是大纲扩写模式，后续会自动进入 Step 5 审稿；因此文章初稿文档末尾不要写“下一步建议：内容审稿（adversarial-content-review）”。审稿状态和修改建议在聊天回复中说明。
 
 ### Step 4: 风格改写模式
 
@@ -197,7 +197,7 @@ author: Emma
 
 ### Step 5: 自动串联审稿（大纲扩写模式专用）
 
-完稿后自动调用 content-reviewer Skill，将 article-draft.md 送去审稿。
+完稿后自动调用 adversarial-content-review Skill，将文章初稿送去审稿。
 
 **审稿产物处理：**
 
@@ -220,7 +220,7 @@ author: Emma
 - 标题 3 个候选必须符合 5 大原则之一
 - 写完全文后做一遍去AI痕迹检查
 - 字数控制在 1500-3000 字
-- 审稿完成后只给审稿结论和修改建议，不自动进入公众号工作台
+- 审稿完成后只给审稿结论和修改建议，不自动进入发布流程
 - 审稿结论为"需重写"时，不自动重写，交由用户决定
 
 ### 风格改写模式

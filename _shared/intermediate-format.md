@@ -38,14 +38,15 @@
 | 完整流程 | `self-media-system` |
 | 数字分身 | `digital-avatar` |
 | 生成选题 | `topic-generator` |
+| 爆款拆解 | `viral-content-breakdown` |
 | 内容大纲 | `content-outline-builder` |
-| 口播脚本 | `voice-script-generator` |
+| 口播脚本 | `voice-script-writer` |
 | 大纲扩写 | `outline-expander` |
 | 生成配图 | `content-image-gen` |
 | 风格改写 | （已合并到 outline-expander） |
-| 内容审稿 | `content-reviewer` |
-| 合规检查 | （已合并到 content-reviewer） |
-| 公众号工作台 | `wechat-studio` |
+| 内容审稿 | `adversarial-content-review` |
+| 合规检查 | （已合并到 adversarial-content-review） |
+| 数据复盘 | `data-analysis` |
 
 ## topic-material-pack.md
 
@@ -123,7 +124,7 @@
 
 ## content-outline.md
 
-由 `content-outline-builder` 输出，供 `voice-script-generator`、`outline-expander` 和 `content-image-gen` 使用。
+由 `content-outline-builder` 输出，供 `voice-script-writer`、`outline-expander` 和 `content-image-gen` 使用。
 
 主产物是 Markdown 文档。建议结构：
 
@@ -133,7 +134,7 @@
 - 文章大纲：每章写清楚章节标题、要回答的问题、关键内容、可使用素材
 - 素材清单：用表格列出类型、内容、来源、可信度
 - 风险提醒
-- 下一步建议：口播脚本（voice-script-generator）/大纲扩写（outline-expander）
+- 下一步建议：口播脚本（voice-script-writer）/大纲扩写（outline-expander）
 
 如果需要给用户比较多个大纲方案，聊天里用纵向对比表，不要输出多份代码块：
 
@@ -144,7 +145,7 @@
 
 ## voice-script.md
 
-由 `voice-script-generator` 输出。
+由 `voice-script-writer` 输出。
 
 主产物是 Markdown 文档。建议结构：
 
@@ -153,13 +154,13 @@
 - 口播逐字稿：可直接录制的正文
 - 分镜建议：用表格列出镜头、时长、画面内容、字幕重点、对应口播
 - 封面标题：按类型给备选
-- 下一步建议：内容审稿（content-reviewer）
+- 下一步建议：内容审稿（adversarial-content-review）
 
 ## article-draft.md
 
-由 `outline-expander` 输出，供 `content-reviewer` 和 `wechat-studio` 使用。
+由 `outline-expander` 输出，供 `adversarial-content-review` 使用。
 
-主产物是完整 Markdown 文章文档。不要把正文放进代码块。该文档必须是可直接导入 WeChat Studio 的干净 Markdown。
+主产物是完整 Markdown 文章文档。不要把正文放进代码块。该文档必须是可供人工发布前审查的干净 Markdown。
 
 推荐结构：
 
@@ -190,15 +191,15 @@ author: Emma
 - `字数`
 - `下一步建议`
 
-如需正文配图位置，可使用 WeChat Studio 支持的图片槽位标记，例如 `[[IMAGE_SLOT:slot-1]]`。图片槽位只放在确实需要配图的位置。
+如需正文配图位置，可使用图片槽位标记，例如 `[[IMAGE_SLOT:slot-1]]`。图片槽位只放在确实需要配图的位置。
 
 医美合规边界应自然写进正文语气和句子里，不要以内部审稿字段形式单独放在正文前。
 
-当 `outline-expander` 执行大纲扩写模式时，完稿后会自动串联内容审稿（content-reviewer）。因此文章初稿文档末尾不要写“下一步建议：内容审稿（content-reviewer）”。审稿结论和修改建议应写入 `review-report.md`，并在聊天回复中摘要展示。
+当 `outline-expander` 执行大纲扩写模式时，完稿后会自动串联内容审稿（adversarial-content-review）。因此文章初稿文档末尾不要写“下一步建议：内容审稿（adversarial-content-review）”。审稿结论和修改建议应在聊天回复中摘要展示。
 
 ## review-report.md
 
-由 `content-reviewer` 输出。医美内容的合规检查并入同一份审稿报告，不再调用独立合规检查 Skill。
+由 `adversarial-content-review` 输出。医美内容的合规检查并入同一轮审稿，不再调用独立合规检查 Skill。
 
 主产物是 Markdown 审稿报告文档。建议结构：
 
@@ -212,4 +213,16 @@ author: Emma
 
 审稿对象已经是正文时，处理建议不要写“大纲扩写（outline-expander）”或“继续扩写”。通过或需修改的稿件，只能建议“发布前微调”或“按审稿意见修订正文”。只有审稿结论为“需重写”，且问题来自结构方向时，才建议返回内容大纲（content-outline-builder）。
 
-审稿完成后只给审稿结论和修改建议，不自动进入公众号工作台；只有用户明确要求预览、排版或推送草稿时才进入公众号工作台（`wechat-studio`）。
+审稿完成后只给审稿结论和修改建议，不自动进入发布流程。发布后的数据、截图、评论或手动记录由数据复盘（data-analysis）处理。
+
+## data-review.md
+
+由 `data-analysis` 输出。
+
+主产物是发布后复盘结论。建议结构：
+
+- 数据基础：平台、内容标题或链接、发布时间、内容形态、数据来源
+- 数据复盘结论：选题吸引力、内容留存、互动价值、精准用户、创作者可持续性
+- 内容归类：A / B / C，以及继续深挖、优化再测或停掉的判断
+- 优化动作：3-5 条按影响排序的具体动作
+- 下一步建议：生成选题（topic-generator）/内容大纲（content-outline-builder）/口播脚本（voice-script-writer）/补数据

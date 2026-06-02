@@ -30,12 +30,10 @@
 
 凭证:
   ARK_API_KEY: string
-  WECHAT_APP_ID: string
-  WECHAT_APP_SECRET: string
 ```
 
 ## 禁止覆盖
 
 - 不允许把“疗效承诺、绝对化表达、焦虑营销”设为允许。
 - 不允许虚构 Emma 的资质、履历、案例或门店。
-- 不允许把 `wechat-studio` 改成全自动发布流程；必须保留人工确认。
+- 不允许新增绕过人工确认的自动发布流程。
