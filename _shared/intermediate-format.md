@@ -19,7 +19,7 @@
 
 ## 文档产物规则
 
-从内容大纲开始，后续主产物必须是本地 Markdown 文档，而不是聊天里的代码块：
+除面诊素材提炼（consultation-material-extractor）的累计素材表外，从内容大纲开始，后续主产物必须是本地 Markdown 文档，而不是聊天里的代码块：
 
 - 默认根目录是当前工作区下的 `content-production/`。
 - 文件名默认使用用户最终选择或确认的标题：`<用户选择的标题>.md`
@@ -37,6 +37,7 @@
 | --- | --- |
 | 完整流程 | `self-media-system` |
 | 数字分身 | `digital-avatar` |
+| 面诊素材提炼 | `consultation-material-extractor` |
 | 生成选题 | `topic-generator` |
 | 爆款拆解 | `viral-content-breakdown` |
 | 内容大纲 | `content-outline-builder` |
@@ -47,6 +48,21 @@
 | 内容审稿 | `adversarial-content-review` |
 | 合规检查 | （已合并到 adversarial-content-review） |
 | 数据复盘 | `data-analysis` |
+
+## 面诊素材累计表
+
+由 `consultation-material-extractor` 输出，供 `digital-avatar`、`topic-generator` 和 `content-outline-builder` 使用。
+
+默认写入当前工作区 `content-production/面诊素材提炼/`。每个素材库单独累计，每张表最多 50 条素材；当前表满 50 条后新建下一编号。只追加，不覆盖已有素材。
+
+| 素材库 | 文件名 | 用途 |
+| --- | --- | --- |
+| 选题素材库 | `01-选题素材库-001.md` | 提炼客户真实问题、原话、认知误区、背后担忧和可延展选题 |
+| Emma 表达样本库 | `02-Emma表达样本库-001.md` | 提炼 Emma 的追问、解释、边界表达和判断习惯，供数字分身参考 |
+| 信任建立案例库 | `03-信任建立案例库-001.md` | 提炼客户从不信任到信任的转折、医生动作和可复制原则 |
+| 临床判断案例库 | `04-临床判断案例库-001.md` | 提炼表面诉求、真实问题、排除逻辑、最终判断和长期管理逻辑 |
+
+所有表格第一列必须是 `来源`。没有原文依据的信息写“未体现”，不要编造；客户原话必须去除隐私和可识别信息；不要记录具体项目名称。
 
 ## topic-material-pack.md
 
@@ -195,25 +211,24 @@ author: Emma
 
 医美合规边界应自然写进正文语气和句子里，不要以内部审稿字段形式单独放在正文前。
 
-当 `outline-expander` 执行大纲扩写模式时，完稿后会自动串联内容审稿（adversarial-content-review）。因此文章初稿文档末尾不要写“下一步建议：内容审稿（adversarial-content-review）”。审稿结论和修改建议应在聊天回复中摘要展示。
+当 `outline-expander` 执行大纲扩写模式时，完稿后应停下来等待用户确认。只有用户明确说“审稿”“发布前检查”或“检查风险表达”时，才进入内容审稿（adversarial-content-review）。
 
-## review-report.md
+## 内容审稿修订
 
-由 `adversarial-content-review` 输出。医美内容的合规检查并入同一轮审稿，不再调用独立合规检查 Skill。
+由 `adversarial-content-review` 处理。医美内容的合规检查并入同一轮审稿，不再调用独立合规检查 Skill，不另行生成 `review-report.md`。
 
-主产物是 Markdown 审稿报告文档。建议结构：
+主产物是修订后的原文和简短修订说明。建议结构：
 
 - 审稿对象：稿件来源
-- 总体结论：通过 / 需修改 / 需重写
-- 维度评分：用表格列出标题吸引力、结构稳定性、论据强度、用户价值、表达完成度
-- 合规与风险明细：涉及医美、诊疗、效果、案例或平台风险时必须包含
-- 主要问题：用表格列出位置、问题、修改建议
-- 优先修改清单
-- 处理建议：只写当前稿件是否通过、是否需要修改、修改重点是什么；不要默认写“下一步建议”
+- 处理结果：已通过 / 已直接修订 / 高风险需重审
+- 主要修改点：3-5 条，按 P0/P1/P2 标注
+- 已修改文件链接或修订后全文
+- 剩余需要 Emma 人工确认的问题
+- 下一步建议：人工发布确认 / 数据复盘（data-analysis）/ 返回内容大纲（content-outline-builder）
 
 审稿对象已经是正文时，处理建议不要写“大纲扩写（outline-expander）”或“继续扩写”。通过或需修改的稿件，只能建议“发布前微调”或“按审稿意见修订正文”。只有审稿结论为“需重写”，且问题来自结构方向时，才建议返回内容大纲（content-outline-builder）。
 
-审稿完成后只给审稿结论和修改建议，不自动进入发布流程。发布后的数据、截图、评论或手动记录由数据复盘（data-analysis）处理。
+审稿发现问题时优先直接修订原文。审稿完成后不自动进入发布流程。发布后的数据、截图、评论或手动记录由数据复盘（data-analysis）处理。
 
 ## data-review.md
 
