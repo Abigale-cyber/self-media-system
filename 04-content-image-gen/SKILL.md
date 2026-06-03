@@ -15,6 +15,7 @@ description: 为 self-media-system 生成配图。支持类型×风格×色板�
 - "写文章" → 大纲扩写（`outline-expander`）
 - "审稿" → 内容审稿（`adversarial-content-review`）
 - "改标题" → 大纲扩写（`outline-expander`）
+- Emma / 高医生的个人号、医生号、小红书、视频号或短视频真人封面 → Emma 封面（`emma-cover`）
 
 ## 不做什么
 

@@ -14,7 +14,7 @@ description: 当需要按 Emma 自媒体系统编排内容生产流程，或需�
 | 01 素材沉淀层 | 从面诊转写、分说话人文字或咨询对话中沉淀可复用素材，并确认 Emma 人设、口吻、专业边界和禁用表达。 | 面诊素材提炼（`consultation-material-extractor`）、数字分身（`digital-avatar`） |
 | 02 选题生产层 | 通过资料访谈或对标拆解，生成候选选题、判断爆款机制并排序推荐。 | 生成选题（`topic-generator`）、爆款拆解（`viral-content-breakdown`） |
 | 03 内容策划层 | 把已确定的选题改写成可确认、可成稿、可拍摄的内容大纲。 | 内容大纲（`content-outline-builder`） |
-| 04 内容生成层 | 根据大纲生成口播稿、公众号长文和配图 Prompt。 | 口播脚本（`voice-script-writer`）、大纲扩写（`outline-expander`）、生成配图（`content-image-gen`） |
+| 04 内容生成层 | 根据大纲生成口播稿、公众号长文、真人封面和通用配图。 | 口播脚本（`voice-script-writer`）、大纲扩写（`outline-expander`）、Emma 封面（`emma-cover`）、生成配图（`content-image-gen`） |
 | 05 优化审查层 | 做发布前内容审稿、合规检查和风险表达修订。 | 内容审稿（`adversarial-content-review`） |
 | 06 数据复盘层 | 分析已发布内容的数据、反馈和下一轮优化方向。 | 数据复盘（`data-analysis`） |
 
@@ -49,7 +49,8 @@ description: 当需要按 Emma 自媒体系统编排内容生产流程，或需�
 | 3A | 把优先选题改写成内容大纲。 | 03 内容策划层 | 内容大纲（`content-outline-builder`） |
 | 4A | 根据大纲、文章或素材生成短视频口播稿、分镜和发布素材。 | 04 内容生成层 | 口播脚本（`voice-script-writer`） |
 | 4B | 根据大纲生成公众号长文稿，并支持标题/开头/结尾优化和润色。 | 04 内容生成层 | 大纲扩写（`outline-expander`） |
-| 4C | 根据主题生成封面图和配图 Prompt。 | 04 内容生成层 | 生成配图（`content-image-gen`） |
+| 4C | 为 Emma / 高医生的个人号或医生号生成小红书、视频号、短视频真人封面。 | 04 内容生成层 | Emma 封面（`emma-cover`） |
+| 4D | 根据主题生成通用封面图和正文配图 Prompt。 | 04 内容生成层 | 生成配图（`content-image-gen`） |
 | 5A | 对成稿或发布素材做内容审稿、合规检查和风险表达修订。 | 05 优化审查层 | 内容审稿（`adversarial-content-review`） |
 | 6A | 对已发布内容做数据复盘，判断选题、标题、封面、脚本结构和反馈回流。 | 06 数据复盘层 | 数据复盘（`data-analysis`） |
 
@@ -102,6 +103,7 @@ description: 当需要按 Emma 自媒体系统编排内容生产流程，或需�
 | `content-outline-builder` | 把已确认选题整理成可写、可拍、可确认的内容大纲。 |
 | `outline-expander` | 根据内容大纲写公众号长文，并支持标题、开头、结尾和句子优化。 |
 | `voice-script-writer` | 生成口播逐字稿、分镜、封面提示词、标题、标签和首评。 |
-| `content-image-gen` | 生成封面图、正文配图或图片提示词。 |
+| `emma-cover` | 为 Emma / 高医生的个人号或医生号生成小红书、视频号、短视频真人封面。 |
+| `content-image-gen` | 生成通用封面图、正文配图或图片提示词。 |
 | `adversarial-content-review` | 做内容质量和合规审稿，发现问题时直接修订原文。 |
 | `data-analysis` | 分析发布数据、评论反馈和下一轮优化动作。 |

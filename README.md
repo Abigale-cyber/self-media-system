@@ -25,7 +25,8 @@
 | `content-outline-builder` | 把选题整理成可写作的文章大纲 | 大纲（含 SCQA + 章节） |
 | `outline-expander` | 按大纲写公众号长文，支持标题/开头/结尾优化和润色 | 文章初稿 |
 | `voice-script-writer` | 大纲、文章或素材转口播稿、分镜、封面标题、发布标题、标签和评论引导 | 口播稿 |
-| `content-image-gen` | 生成封面图和正文配图 | 图片文件 |
+| `emma-cover` | 为 Emma / 高医生的个人号或医生号生成小红书、视频号、短视频真人封面 | 封面图 |
+| `content-image-gen` | 生成通用封面图和正文配图 | 图片文件 |
 | `adversarial-content-review` | 发布前内容审稿、合规检查和风险表达修订 | 审稿结论与修订建议 |
 | `data-analysis` | 分析已发布内容的数据、反馈和下一轮优化方向 | 数据复盘报告 |
 
@@ -40,6 +41,7 @@ self-media-system/
 ├── 03-content-outline-builder/     # 大纲
 ├── 04-outline-expander/            # 长文
 ├── 04-voice-script-writer/         # 口播
+├── 04-emma-cover/                  # Emma / 高医生真人封面
 ├── 04-content-image-gen/           # 生成配图
 ├── 05-adversarial-content-review/  # 审稿+合规
 ├── 06-data-analysis/               # 数据复盘
@@ -58,6 +60,7 @@ $viral-content-breakdown 拆解这条爆款视频
 $content-outline-builder 把"眼周抗衰"整理成大纲
 $outline-expander 根据大纲写公众号文章
 $voice-script-writer 根据大纲写 90 秒口播
+$emma-cover 这次做个人号，帮我生成封面
 $adversarial-content-review 帮我审稿
 $data-analysis 复盘这条内容的数据
 ```
@@ -65,7 +68,7 @@ $data-analysis 复盘这条内容的数据
 或者串联使用：
 
 ```
-consultation-material-extractor/digital-avatar → topic-generator/viral-content-breakdown → content-outline-builder → outline-expander/voice-script-writer/content-image-gen → adversarial-content-review → data-analysis
+consultation-material-extractor/digital-avatar → topic-generator/viral-content-breakdown → content-outline-builder → outline-expander/voice-script-writer/emma-cover/content-image-gen → adversarial-content-review → data-analysis
 ```
 
 ## 配置
